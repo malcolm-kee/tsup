@@ -1,6 +1,6 @@
 {
-  "name": "tsup",
-  "version": "0.0.0-semantic-release",
+  "name": "@mkeeorg/tsup",
+  "version": "4.12.5",
   "main": "dist/index.js",
   "bin": {
     "tsup": "dist/cli-default.js",
