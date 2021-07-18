@@ -109,6 +109,7 @@ export type Options = {
     plugins: Array<any>
     options: any
   }
+  inject?: string[]
 }
 
 export type NormalizedOptions = MarkRequired<
@@ -213,6 +214,7 @@ export async function runEsbuild(
       keepNames: options.keepNames,
       incremental: !!options.watch,
       pure: typeof options.pure === 'string' ? [options.pure] : options.pure,
+      inject: options.inject,
     })
   } catch (error) {
     log(format, 'error', 'Build failed')
