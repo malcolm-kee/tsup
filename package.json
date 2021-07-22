@@ -1,6 +1,6 @@
 {
   "name": "@mkeeorg/tsup",
-  "version": "4.12.6",
+  "version": "4.12.7",
   "main": "dist/index.js",
   "bin": {
     "tsup": "dist/cli-default.js",

@@ -509,12 +509,17 @@ export async function build(_options: Options) {
         esbuildPlugins: undefined,
       },
     })
-    worker.on('message', (data) => {
-      if (data === 'error') {
-        process.exitCode = 1
-      } else if (data === 'success') {
-        process.exitCode = 0
-      }
+
+    await new Promise<void>((fulfill, reject) => {
+      worker.on('message', (data) => {
+        if (data === 'error') {
+          process.exitCode = 1
+          reject()
+        } else if (data === 'success') {
+          process.exitCode = 0
+          fulfill()
+        }
+      })
     })
   }
 }
